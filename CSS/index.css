@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+:root{
+    --primary-color:rgb(227, 227, 227);
+    --secondary-color:rgb(29, 29, 29);
+}
+.dark-theme{
+    --primary-color:rgb(29, 29, 29);
+    --secondary-color:rgb(227, 227, 227);
+}
+
+/*styling for menu*/
+
+#menu {
+    cursor: pointer;
+    max-width: 200px;
+    height: 600px;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    /* Add position relative */
+    overflow: hidden;
+    z-index: 1;
+    /* Hide overflow to prevent background from showing outside */
+}
+
+.menu-header{
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 12px 8px 10px 14px;
+}
+
+#menu.active .menu-body {
+    max-height: 600px;
+    z-index: 1;
+}
+
+#menu > .menu-header > svg > path {
+    fill: var(--primary-color);
+    transition: fill 0.2s ease;
+}
+
+
+#menu.active .menu-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.547);
+    justify-content: center;
+    align-items: center;
+    z-index: -2;
+}
+
+#menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(42, 42, 42);
+    transform: scaleY(0);
+    /* Initial width is 0 */
+    transform-origin: top;
+    /* Expand from left */
+    transition: transform 0.4s ease-in-out;
+    /* Transition transform property for slide effect */
+    z-index: -1;
+    /* Place it behind the menu */
+}
+
+#menu.active::before {
+    transform: scaleY(1);
+    /* Expand to full width */
+    transform-origin: top;
+    /* Expand from left */
+}
+
+.menu-body {
+    margin: 0;
+    padding-left: 15px;
+    max-height: 0;
+    overflow: hidden;
+    color: #f2f2f2;
+    transition: max-height 0.4s ease;
+    /* Transition max-height for the dropdown */
+}
+
+.menu-body>ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 350px;
+}
+
+.menu-body>ul>li {
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+.menu-body>dl>dd {
+    list-style: none;
+    padding-bottom: 10px;
+
+}
+
+.menu-body>dl {
+    transition-delay: 0.4s ease;
+}
+
+/*styling for header*/
+
+.header {
+    color: var(--secondary-color);
+    transition: background-color 0.3s ease;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 300px;
+    top: -1px;
+    margin: 0;
+    padding: 0%;
+}
+
+
+/*styling for search bar*/
+
+.search-bar {
+    width: 250px;
+    position: absolute;
+    top: 20px;
+    right: 400px;
+    background-color: rgba(170, 170, 170, 0.421);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    border-radius: 60px;
+    display: flex;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+
+.search-bar>form>input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+::placeholder {
+    color: var(--secondary-color);
+}
+
+.search-bar>form>button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    left: 25px;
+}
+
+.search-bar>form>button>svg {
+    fill: var(--secondary-color);
+    height: 15px;
+}
+
+
+/* styling for theme*/
+
+.theme{
+    width: 90px;
+    height: 30px;
+    border-radius: 60px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    display: flex;
+}
+
+.theme > img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.theme > p{
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+/*/////////////////////////////styles for main weather card/////////////////////*/
+
+.main-card {
+    position: absolute;
+    top: 120px;
+    left: 250px;
+    width: 1000px;
+    height: 300px;
+    background-color: black;
+}
+
+.main-card > .image > img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+}
+
+.main-card > .details {
+    width: 600px;
+    height: 300px;
+    background-color: rgba(22, 22, 22, 0.548);
+    position: absolute;
+    top: 0px;  
+    right: 0px;
+    backdrop-filter: blur(4px);
+}
+
+.main-card > .details > table{
+    position: relative;
+    top: 16%;
+    left: 10%;
+    width: 500px;
+    height: 200px;
+}
+
+.main-card > .details > table td {
+    background-color: rgba(0, 0, 0, 0.356);
+    padding: 10px; /* Adjust padding as needed */
+    text-align: center; /* Center-align content within cells */
+}
+
+.temp{
+     position: absolute;
+     top: 12px;
+     left: 50px;
+     color: rgb(227, 227, 227);
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1{
+    font-size: 6rem;
+}
+
+#cell1{
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+#cell2{
+    position: absolute;
+    top: 110px;
+    left: 160px;
+}
+
+#cell3{
+    position: absolute;
+    top: 130px;
+    left: 160px;
+}
+
+
+
+
+
+

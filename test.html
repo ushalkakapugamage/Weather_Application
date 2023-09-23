@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Picker</title>
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://api.opencagedata.com/geocode/v1/js?key=YOUR_OPENCAGE_API_KEY"></script>
+    <style>
+        /* Style for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+        }
+
+        /* Style for the modal content */
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Style for the close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Small map icon/button to open the map -->
+    <div id="small-map-icon">
+        <button onclick="openMap()">Open Map</button>
+    </div>
+
+    <!-- The modal for displaying the map -->
+    <div id="mapModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeMap()">&times;</span>
+            <div id="map" style="width: 400px; height: 400px;"></div>
+            <p id="cityName">City: </p>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        // Add a tile layer (you can replace 'your-api-key' with your actual API key if using a provider that requires it)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Initialize a marker
+        var marker = L.marker([51.505, -0.09]).addTo(map);
+
+        // Function to update marker and input fields with the selected location
+        function updateMarker(lat, lon) {
+            marker.setLatLng([lat, lon]);
+            reverseGeocode(lat, lon);
+        }
+
+        // Function to perform reverse geocoding and display the city name
+        function reverseGeocode(lat, lon) {
+            L.Control.Geocoder.nominatim().reverse(
+                lat + ',' + lon,
+                map.options.crs.scale(map.getZoom()),
+                function(results) {
+                    var city = results[0].name || 'Unknown';
+                    document.getElementById('cityName').textContent = 'City: ' + city;
+                }
+            );
+        }
+
+        // Listen for map clicks and update the marker and input fields
+        map.on('click', function(e) {
+            updateMarker(e.latlng.lat, e.latlng.lng);
+        });
+
+        // Function to open the map modal
+        function openMap() {
+            document.getElementById('mapModal').style.display = 'block';
+        }
+
+        // Function to close the map modal
+        function closeMap() {
+            document.getElementById('mapModal').style.display = 'none';
+        }
+
+        // Initialize with a default location
+        updateMarker(51.505, -0.09);
+    </script>
+</body>
+</html>
