@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
+
     <link rel="stylesheet" href="CSS/index.css">
+
+</head>
 </head>
 
 <body>
@@ -66,16 +69,14 @@
     </div>
 
     <div class="search-bar">
-        <form>
-            <input type="text" placeholder="search city..." id="search-bar">
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                    viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                    <path
-                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
-                </svg>
-            </button>
-        </form>
+        <input type="text" placeholder="search city..." id="search-bar">
+        <button id="search-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+        </button>
     </div>
 
     <div class="theme">
@@ -84,32 +85,105 @@
     </div>
 
     <div class="main-card">
-        <div class="image">
+        <div class="image" id="main-img">
             <img src="ASSETS/clouds.jpeg">
             <div class="temp">
-                <h1 id="cell1">30</h1>
-                <h2 id="cell2">cloudy</h2>
-                <h2 id="cell3">colombo</h2>
+                <div class="temperature">
+                    <div>
+                        <h1 id="cell1">30&deg;</h1>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="condition">
+                                <h2 id="cell2">cloudy</h2>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="location">
+                                <h2 id="cell3">colombo</h2>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
             </div>
         </div>
         <div class="details">
-            <table>
+            <table id="weatherTable">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Wind Pressure (mb)</td>
+                    <td>Wind Speed (kph)</td>
+                    <td>Humidity (%)</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td id="windPressure"></td>
+                    <td id="windSpeed"></td>
+                    <td id="humidity"></td>
+                </tr>
+                <tr>
+                    <td>UV Index</td>
+                    <td>Sunrise</td>
+                    <td>Sunset</td>
+                </tr>
+                <tr>
+                    <td id="uvIndex"></td>
+                    <td id="sunrise"></td>
+                    <td id="sunset"></td>
                 </tr>
             </table>
-
         </div>
     </div>
 
+    <div class="display-forecast-data">
+        <table class="card" id="card0">
+            <tr>
+                <td id="card-temp0"></td>
+            </tr>
+            <tr>
+                <td id="card-condition0"></td>
+            </tr>
+        </table>
+        <table class="card" id="card1">
+            <tr>
+                <td id="card-temp1"></td>
+            </tr>
+            <tr>
+                <td id="card-condition1"></td>
+            </tr>
+        </table>
+        <table class="card" id="card2">
+            <tr>
+                <td id="card-temp2"></td>
+            </tr>
+            <tr>
+                <td id="card-condition2"></td>
+            </tr>
+        </table>
+        <table class="card" id="card3">
+            <tr>
+                <td id="card-temp3"></td>
+            </tr>
+            <tr>
+                <td id="card-condition3"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="historical-data">
+        <table border="1">
+            <tr><td>2023/07/18</td></tr>
+            <tr><td>2023/07/18</td></tr>
+            <tr><td>2023/07/18</td></tr>
+        </table>
+    </div>
+
     <script src="JS/index.js"></script>
+    <script src="JS/weather.js"></script>
 </body>
 
 </html>

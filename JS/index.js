@@ -9,12 +9,16 @@ const icon = document.getElementById("icon");
 const text = document.getElementById("theme-text");
 icon.onclick = () => {
     document.body.classList.toggle("dark-theme");
-    if(document.body.classList.contains("dark-theme")) {
-        icon.src="ASSETS/sun.png";
-        text.innerText="Light";
-        
-    }else {
-        icon.src="ASSETS/moon.png";
-        text.innerText="Dark";
+    if (document.body.classList.contains("dark-theme")) {
+        icon.src = "ASSETS/sun.png";
+        text.innerText = "Light";
+
+    } else {
+        icon.src = "ASSETS/moon.png";
+        text.innerText = "Dark";
     }
 };
+
+
+
+
