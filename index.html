@@ -85,8 +85,8 @@
     </div>
 
     <div class="main-card">
-        <div class="image" id="main-img">
-            <img src="ASSETS/clouds.jpeg">
+        <div class="image">
+            <img id="main-img" src="ASSETS/clouds.jpeg">
             <div class="temp">
                 <div class="temperature">
                     <div>
@@ -116,71 +116,91 @@
         <div class="details">
             <table id="weatherTable">
                 <tr>
-                    <td>Wind Pressure (mb)</td>
-                    <td>Wind Speed (kph)</td>
-                    <td>Humidity (%)</td>
+                    <td><img src="ASSETS/icons/wind.png">&nbsp;Wind Pressure (mb)</td>
+                    <td ><img src="ASSETS/icons/wind (1).png">&nbsp;</p>Wind Speed (kph)</td>
+                    <td ><img src="ASSETS/icons/humidity.png">&nbsp;Humidity (%)</td>
                 </tr>
                 <tr>
-                    <td id="windPressure"></td>
-                    <td id="windSpeed"></td>
-                    <td id="humidity"></td>
+                    <td><p id="windPressure"></p></td>
+                    <td><p id="windSpeed"></p></td>
+                    <td><p id="humidity"></p></td>
                 </tr>
                 <tr>
-                    <td>UV Index</td>
-                    <td>Sunrise</td>
-                    <td>Sunset</td>
+                    <td ><img src="ASSETS/icons/uv.png">&nbsp;UV Index</td>
+                    <td ><img src="ASSETS/icons/sun.png">&nbsp;Sunrise</td>
+                    <td ><img src="ASSETS/icons/sunset.png">&nbsp;Sunset</td>
                 </tr>
                 <tr>
-                    <td id="uvIndex"></td>
-                    <td id="sunrise"></td>
-                    <td id="sunset"></td>
+                    <td><p id="uvIndex"></td>
+                    <td><p id="sunrise"></p></td>
+                    <td><p id="sunset"></p></td>
                 </tr>
+                
             </table>
         </div>
     </div>
 
+    <div class="forecast-header"><h3>Forecast weather</h3></div>
     <div class="display-forecast-data">
-        <table class="card" id="card0">
-            <tr>
-                <td id="card-temp0"></td>
-            </tr>
-            <tr>
-                <td id="card-condition0"></td>
-            </tr>
-        </table>
         <table class="card" id="card1">
             <tr>
-                <td id="card-temp1"></td>
+                <td id="card-date1" class="card-font"></td>
             </tr>
             <tr>
-                <td id="card-condition1"></td>
+                <td id="card-temp1" class="card-temp"></td>
+            </tr>
+            <tr>
+                <td id="card-condition1" class="card-font"></td>
             </tr>
         </table>
         <table class="card" id="card2">
             <tr>
-                <td id="card-temp2"></td>
+                <td id="card-date2" class="card-font"></td>
             </tr>
             <tr>
-                <td id="card-condition2"></td>
+                <td id="card-temp2" class="card-temp"></td>
+            </tr>
+            <tr>
+                <td id="card-condition2" class="card-font"></td>
             </tr>
         </table>
         <table class="card" id="card3">
             <tr>
-                <td id="card-temp3"></td>
+                <td id="card-date3" class="card-font"></td>
             </tr>
             <tr>
-                <td id="card-condition3"></td>
+                <td id="card-temp3" class="card-temp"></td>
+            </tr>
+            <tr>
+                <td id="card-condition3" class="card-font"></td>
+            </tr>
+        </table>
+        <table class="card" id="card4">
+            <tr>
+                <td id="card-date4" class="card-font"></td>
+            </tr>
+            <tr>
+                <td id="card-temp4" class="card-temp"></td>
+            </tr>
+            <tr>
+                <td id="card-condition4" class="card-font"></td>
             </tr>
         </table>
     </div>
 
+    <div class="historiacl-header"><h3>Historical weather</h3></div>
     <div class="historical-data">
-        <table border="1">
-            <tr><td>2023/07/18</td></tr>
-            <tr><td>2023/07/18</td></tr>
-            <tr><td>2023/07/18</td></tr>
+        <table>
+            <tr><td><img src="ASSETS/icons/clouds.png">&nbsp;&nbsp;&nbsp;&nbsp;2023/07/18&nbsp;&nbsp;&nbsp;&nbsp;Cloudy&nbsp;&nbsp;&nbsp;&nbsp;29&deg;</td></tr>
+            <tr><td><img src="ASSETS/icons/windy.png">&nbsp;&nbsp;&nbsp;&nbsp;2023/07/18&nbsp;&nbsp;&nbsp;&nbsp;Windy&nbsp;&nbsp;&nbsp;&nbsp;28.2&deg;</td></tr>
+            <tr><td><img src="ASSETS/icons/cloudy.png">&nbsp;&nbsp;&nbsp;&nbsp;2023/07/18&nbsp;&nbsp;&nbsp;&nbsp;Sunny&nbsp;&nbsp;&nbsp;&nbsp;30&deg;</td></tr>
         </table>
     </div>
+
+    <div class="test">
+        <p id="demo"></p>
+    </div>
+    
 
     <script src="JS/index.js"></script>
     <script src="JS/weather.js"></script>
