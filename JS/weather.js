@@ -6,7 +6,6 @@ let longitude = undefined;
 
 
 window.onload = function () {
-    var x = document.getElementById("demo");
     var latitude;  // Variable to store latitude
     var longitude; // Variable to store longitude
 
@@ -14,7 +13,7 @@ window.onload = function () {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            alert("Geolocation is not supported by this browser.")
         }
     };
 
@@ -74,8 +73,10 @@ function maincard_weather(location) {
             let conditionArray = condition.split(' ');
 
             // Change the image source based on the condition
-            if (conditionArray[conditionArray.length - 1] == "shower") {
-                document.getElementById("main-img").src = "ASSETS/rainy.webp"; // Change to the new image source
+            if (conditionArray[conditionArray.length - 1] == "rain") {
+                document.getElementById("main-img").src = "ASSETS/rain.jpg"; // Change to the new image source
+            }else if (conditionArray[conditionArray.length - 1] == "cloudy") {
+                document.getElementById("main-img").src = "ASSETS/clouds.jpeg"; // Change to the new image source
             }
 
             const windPressure = data.current.pressure_mb;
@@ -121,8 +122,10 @@ function maincard_weather(latitude, longitude) {
             let conditionArray = condition.split(' ');
 
             // Change the image source based on the condition
-            if (conditionArray[conditionArray.length - 1] == "shower") {
-                document.getElementById("main-img").src = "ASSETS/rainy.webp"; // Change to the new image source
+            if (conditionArray[conditionArray.length - 1] == "rain") {
+                document.getElementById("main-img").src = "ASSETS/rain.jpg"; // Change to the new image source
+            }else if (conditionArray[conditionArray.length - 1] == "cloudy") {
+                document.getElementById("main-img").src = "ASSETS/clouds.jpeg"; // Change to the new image source
             }
 
             const windPressure = data.current.pressure_mb;
@@ -169,7 +172,7 @@ function forcast_weather(location) {
             
                 let conditionArray = condition.split(' ');
                 if (conditionArray[conditionArray.length - 1] == "rain") {
-                    document.getElementById(`card${i}`).style.backgroundImage = "url('Assets/rainy.webp')";
+                    document.getElementById(`card${i}`).style.backgroundImage = "url('Assets/rain.jpg')";
                 } else if (conditionArray[conditionArray.length - 1] == "cloudy") {
                     document.getElementById(`card${i}`).style.backgroundImage = "url('Assets/clouds.jpeg')";
                 } else if (conditionArray[conditionArray.length - 1] == "sunny") {
@@ -205,13 +208,16 @@ function forcast_weather(location) {
                     document.getElementById(`card-temp${i}`).innerHTML = data.forecast.forecastday[i].day.maxtemp_c + "&deg;";
                     let condition = document.getElementById(`card-condition${i}`).innerHTML = data.forecast.forecastday[i].day.condition.text;
                     document.getElementById(`card-date${i}`).innerHTML = data.forecast.forecastday[i].date;
-
+                
                     let conditionArray = condition.split(' ');
                     if (conditionArray[conditionArray.length - 1] == "rain") {
-                        document.getElementById(`card${i}`).style.backgroundImage = "url('Assets/rainy.webp')";
+                        document.getElementById(`card${i}`).style.backgroundImage = "url('Assets/rain.jpg')";
                     } else if (conditionArray[conditionArray.length - 1] == "cloudy") {
                         document.getElementById(`card${i}`).style.backgroundImage = "url('Assets/clouds.jpeg')";
+                    } else if (conditionArray[conditionArray.length - 1] == "sunny") {
+                        document.getElementById(`card${i}`).style.backgroundImage = "url('Assets/sun.jpg')";
                     }
+                    // Add more conditions as needed for other weather conditions
                 }
 
             })

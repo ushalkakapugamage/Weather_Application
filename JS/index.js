@@ -1,7 +1,8 @@
 console.log("hi");
 
 const menu = document.getElementById("menu");
-menu.addEventListener("click", () => {
+const menu_header = document.getElementById("menu-icon");
+menu_header.addEventListener("click", () => {
     menu.classList.toggle("active");
 });
 
