@@ -10,7 +10,7 @@ let endDate = undefined;
 
 window.onload = function () {
     currentDate = getCurrentDate();
-    endDate=getEndDate(); 
+    endDate = getEndDate();
 
 
     var latitude;  // Variable to store latitude
@@ -28,7 +28,7 @@ window.onload = function () {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
         maincard_weather(latitude, longitude);
-        historical_weather(latitude, longitude,currentDate,endDate);
+        historical_weather(latitude, longitude, currentDate, endDate);
     };
 
     // Call the getLocation function to initiate the geolocation process
@@ -69,6 +69,7 @@ search_btn.onclick = () => {
 
 function display_weather(location) {
     maincard_weather(location);
+    historical_weather_byLocation(location, currentDate, endDate);
 }
 
 
@@ -77,7 +78,7 @@ function maincard_weather(location) {
 
     // Use encodeURIComponent to properly encode the search_bar value
 
-    fetch(`${apiUrl}/current.json?key=${apiKey}&q=${location}`)
+    fetch(`${apiUrl}/current.json?key=${apiKey}&q=${location}&days=5`)
         .then(response => {
             // Check if the response status is OK (200)
             if (!response.ok) {
@@ -90,16 +91,24 @@ function maincard_weather(location) {
             // Handle the JSON data here
             jsonData = data;
             forcast_weather(jsonData);
+
             document.getElementById("cell1").innerHTML = data.current.temp_c + "&deg;";
             let condition = document.getElementById("cell2").innerHTML = data.current.condition.text;
             document.getElementById("cell3").innerHTML = data.location.name;
-            let conditionArray = condition.split(' ');
-
-            // Change the image source based on the condition
-            if (conditionArray[conditionArray.length - 1] == "rain") {
-                document.getElementById("main-img").src = "ASSETS/rain.jpg"; // Change to the new image source
-            } else if (conditionArray[conditionArray.length - 1] == "cloudy") {
-                document.getElementById("main-img").src = "ASSETS/clouds.jpeg"; // Change to the new image source
+            const conditionLowerCase = condition.toLowerCase();
+            const mainImg = document.getElementById("main-img");
+            mainImg.style.backgroundRepeat = "no-repeat";
+            mainImg.style.backgroundSize = "cover";
+            if (conditionLowerCase.includes("rain")) {
+                mainImg.src = "ASSETS/rain.jpg";
+            } else if (conditionLowerCase.includes("cloudy")) {
+                mainImg.src = "ASSETS/clouds.jpeg";
+            } else if (conditionLowerCase.includes("sunny")) {
+                mainImg.src = "ASSETS/sun.jpg";
+            } else if (conditionLowerCase.includes("windy")) {
+                mainImg.src = "ASSETS/windy.jpg";
+            } else if (conditionLowerCase.includes("shower")) {
+                mainImg.src = "ASSETS/rain.jpg";
             }
 
             const windPressure = data.current.pressure_mb;
@@ -140,24 +149,36 @@ function maincard_weather(latitude, longitude) {
             // Handle the JSON data here
             jsonData = data;
             forcast_weather(jsonData);
+
             document.getElementById("cell1").innerHTML = data.current.temp_c + "&deg;";
             let condition = document.getElementById("cell2").innerHTML = data.current.condition.text;
             document.getElementById("cell3").innerHTML = data.location.name;
-            let conditionArray = condition.split(' ');
-
-            // Change the image source based on the condition
-            if (conditionArray[conditionArray.length - 1] == "rain") {
-                document.getElementById("main-img").src = "ASSETS/rain.jpg"; // Change to the new image source
-            } else if (conditionArray[conditionArray.length - 1] == "cloudy") {
-                document.getElementById("main-img").src = "ASSETS/clouds.jpeg"; // Change to the new image source
+            const conditionLowerCase = condition.toLowerCase();
+            const mainImg = document.getElementById("main-img");
+            mainImg.style.backgroundRepeat = "no-repeat";
+            mainImg.style.backgroundSize = "cover";
+            if (conditionLowerCase.includes("rain")) {
+                mainImg.src = "ASSETS/rain.jpg";
+            } else if (conditionLowerCase.includes("cloudy")) {
+                mainImg.src = "ASSETS/clouds.jpeg";
+            } else if (conditionLowerCase.includes("sunny")) {
+                mainImg.src = "ASSETS/sun.jpg";
+            } else if (conditionLowerCase.includes("windy")) {
+                mainImg.src = "ASSETS/windy.jpg";
+            } else if (conditionLowerCase.includes("shower")) {
+                mainImg.src = "ASSETS/rain.jpg";
+            }else if (conditionLowerCase.includes("fog")) {
+                mainImg.src = "ASSETS/fog.jpg";
+            }else if (conditionLowerCase.includes("overcast")) {
+                mainImg.src = "ASSETS/overcast.webp";
             }
 
             const windPressure = data.current.pressure_mb;
             const windSpeed = data.current.wind_kph;
             const humidity = data.current.humidity;
             const uvIndex = data.current.uv;
-            const sunrise = data.location.localtime;
-            const sunset = data.location.localtime;
+            const sunrise = data.forecast.forecastday[0].astro.sunrise;
+            const sunset = data.forecast.forecastday[0].astro.sunset;
 
             // Update the table cells with the data
             document.getElementById('windPressure').textContent = windPressure;
@@ -175,29 +196,29 @@ function maincard_weather(latitude, longitude) {
 
 function forcast_weather(jsonData) {
     for (let i = 1; i < 5; i++) {
-        // Use template literals to concatenate the index i with the IDs
         document.getElementById(`card-temp${i}`).innerHTML = jsonData.forecast.forecastday[i].day.maxtemp_c + "&deg;";
         let condition = document.getElementById(`card-condition${i}`).innerHTML = jsonData.forecast.forecastday[i].day.condition.text;
         document.getElementById(`card-date${i}`).innerHTML = jsonData.forecast.forecastday[i].date;
-
-        let conditionArray = condition.split(' ');
         let card = document.getElementById(`card${i}`);
         card.style.backgroundRepeat = "no-repeat";
         card.style.backgroundSize = "cover";
 
-        if (conditionArray[conditionArray.length - 1] == "rain") {
+        if (condition.toLowerCase().includes("rain")) {
             card.style.backgroundImage = "url('Assets/rain.jpg')";
-        } else if (conditionArray[conditionArray.length - 1] == "cloudy") {
+        } else if (condition.toLowerCase().includes("cloudy")) {
             card.style.backgroundImage = "url('Assets/clouds.jpeg')";
-        } else if (conditionArray[conditionArray.length - 1] == "Sunny") {
+        } else if (condition.toLowerCase().includes("sunny")) {
             card.style.backgroundImage = "url('Assets/sun.jpeg')";
-        } else if (conditionArray[conditionArray.length - 1] == "Windy") {
+        } else if (condition.toLowerCase().includes("windy")) {
             card.style.backgroundImage = "url('Assets/windy.jpg')";
+        } else if (condition.toLowerCase().includes("overcast")) {
+            card.style.backgroundImage = "url('Assets/overcast.webp')";
         }
-        // Add more conditions as needed for other weather conditions
     }
 
 }
+
+
 function historical_weather(latitude, longitude, currentDate, endDate) {
     fetch(`${apiUrl}/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${endDate}&end_dt=${currentDate}`)
         .then(response => {
@@ -227,19 +248,65 @@ function historical_weather(latitude, longitude, currentDate, endDate) {
         .catch(error => {
             console.error('Fetch error:', error);
         });
+
 }
 
+function historical_weather_byLocation(locaton, currentDate, endDate) {
+    fetch(`${apiUrl}/history.json?key=${apiKey}&q=${locaton}&dt=${endDate}&end_dt=${currentDate}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Weather data request failed with status: " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+
+            const table = document.querySelector('.historical-data table');
+            table.innerHTML = '';
+
+            for (let i = 4 - 1; i >= 0; i--) {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+
+                const iconSrc = getIconSrc(data.forecast.forecastday[i].day.condition.text);
+
+                cell.innerHTML = `<img src="${iconSrc}">&nbsp;&nbsp;&nbsp;&nbsp;${data.forecast.forecastday[i].date}&nbsp;&nbsp;&nbsp;&nbsp;${data.forecast.forecastday[i].day.condition.text}&nbsp;&nbsp;&nbsp;&nbsp;${data.forecast.forecastday[i].day.maxtemp_c}&deg;`;
+
+                row.appendChild(cell);
+                table.appendChild(row);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+}
+
+
 function getIconSrc(condition) {
-    if (condition.toLowerCase().includes('shower')) {
+    if (condition.toLowerCase().includes('cloudy')) {
         return 'ASSETS/icons/clouds.png';
     } else if (condition.toLowerCase().includes('windy')) {
         return 'ASSETS/icons/windy.png';
     } else if (condition.toLowerCase().includes('sunny')) {
-        return 'ASSETS/icons/sunny.png';
+        return 'ASSETS/icons/cloudy.png';
     } else if (condition.toLowerCase().includes('rainy')) {
         return 'ASSETS/icons/rain.png';
+    } else if (condition.toLowerCase().includes('rain')) {
+        return 'ASSETS/icons/rain.png';
+    }else if (condition.toLowerCase().includes('drizzle')) {
+        return 'ASSETS/icons/rain.png';
+    }else if (condition.toLowerCase().includes('shower')) {
+        return 'ASSETS/icons/rain.png';
+    }else if (condition.toLowerCase().includes('overcast')) {
+        return 'ASSETS/icons/overcast.png';
     }
+    
 
     return 'ASSETS/icons/default.png';
 }
+
+
+
+
 
