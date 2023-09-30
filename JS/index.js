@@ -1,4 +1,3 @@
-console.log("hi");
 
 const menu = document.getElementById("menu");
 const menu_header = document.getElementById("menu-icon");
