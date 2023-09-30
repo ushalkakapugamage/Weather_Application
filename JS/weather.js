@@ -76,19 +76,19 @@ function display_weather(location) {
 function maincard_weather(location) {
 
 
-    // Use encodeURIComponent to properly encode the search_bar value
+  
 
     fetch(`${apiUrl}/current.json?key=${apiKey}&q=${location}&days=5`)
         .then(response => {
-            // Check if the response status is OK (200)
+      
             if (!response.ok) {
                 throw new Error("Weather data request failed with status: " + response.status);
             }
-            // Parse the response as JSON
+      
             return response.json();
         })
         .then(data => {
-            // Handle the JSON data here
+
             jsonData = data;
             forcast_weather(jsonData);
 
@@ -118,7 +118,7 @@ function maincard_weather(location) {
             const sunrise = data.location.localtime;
             const sunset = data.location.localtime;
 
-            // Update the table cells with the data
+      
             document.getElementById('windPressure').textContent = windPressure;
             document.getElementById('windSpeed').textContent = windSpeed;
             document.getElementById('humidity').textContent = humidity;
@@ -127,26 +127,25 @@ function maincard_weather(location) {
             document.getElementById('sunset').textContent = sunset;
         })
         .catch(error => {
-            // Handle errors here
+  
             console.error('Fetch error:', error);
         });
 }
 function maincard_weather(latitude, longitude) {
 
 
-    // Use encodeURIComponent to properly encode the search_bar value
 
     fetch(`${apiUrl}/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=5`)
         .then(response => {
-            // Check if the response status is OK (200)
+
             if (!response.ok) {
                 throw new Error("Weather data request failed with status: " + response.status);
             }
-            // Parse the response as JSON
+
             return response.json();
         })
         .then(data => {
-            // Handle the JSON data here
+
             jsonData = data;
             forcast_weather(jsonData);
 
@@ -180,7 +179,7 @@ function maincard_weather(latitude, longitude) {
             const sunrise = data.forecast.forecastday[0].astro.sunrise;
             const sunset = data.forecast.forecastday[0].astro.sunset;
 
-            // Update the table cells with the data
+   
             document.getElementById('windPressure').textContent = windPressure;
             document.getElementById('windSpeed').textContent = windSpeed;
             document.getElementById('humidity').textContent = humidity;
@@ -189,7 +188,7 @@ function maincard_weather(latitude, longitude) {
             document.getElementById('sunset').textContent = sunset;
         })
         .catch(error => {
-            // Handle errors here
+   
             console.error('Fetch error:', error);
         });
 }
@@ -301,9 +300,6 @@ function getIconSrc(condition) {
     }else if (condition.toLowerCase().includes('overcast')) {
         return 'ASSETS/icons/overcast.png';
     }
-    
-
-    return 'ASSETS/icons/default.png';
 }
 
 
