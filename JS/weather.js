@@ -13,8 +13,8 @@ window.onload = function () {
     endDate = getEndDate();
 
 
-    var latitude;  // Variable to store latitude
-    var longitude; // Variable to store longitude
+    var latitude;  
+    var longitude; 
 
     var getLocation = function () {
         if (navigator.geolocation) {
@@ -31,7 +31,6 @@ window.onload = function () {
         historical_weather(latitude, longitude, currentDate, endDate);
     };
 
-    // Call the getLocation function to initiate the geolocation process
     getLocation();
 
 
@@ -78,7 +77,7 @@ function maincard_weather(location) {
 
   
 
-    fetch(`${apiUrl}/current.json?key=${apiKey}&q=${location}&days=5`)
+    fetch(`${apiUrl}/forecast.json?key=${apiKey}&q=${location}&days=5`)
         .then(response => {
       
             if (!response.ok) {
@@ -109,6 +108,8 @@ function maincard_weather(location) {
                 mainImg.src = "ASSETS/windy.jpg";
             } else if (conditionLowerCase.includes("shower")) {
                 mainImg.src = "ASSETS/rain.jpg";
+            }else if (conditionLowerCase.includes("overcast")) {
+                mainImg.src = "ASSETS/overcast.webp";
             }
 
             const windPressure = data.current.pressure_mb;
@@ -299,6 +300,8 @@ function getIconSrc(condition) {
         return 'ASSETS/icons/rain.png';
     }else if (condition.toLowerCase().includes('overcast')) {
         return 'ASSETS/icons/overcast.png';
+    }else if (condition.toLowerCase().includes('thundery')) {
+        return 'ASSETS/icons/thunder.png';
     }
 }
 

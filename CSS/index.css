@@ -218,7 +218,7 @@ body {
     background-color: black;
 }
 
-.main-card > .image > img {
+.main-card>.image>img {
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -267,7 +267,7 @@ body {
 
 
 .temp {
-    
+
     position: relative;
     bottom: 257px;
     left: 50px;
@@ -313,7 +313,6 @@ h2 {
     display: flex;
     width: 560px;
     height: 200px;
-    z-index: -1;
 }
 
 .forecast-header {
@@ -381,6 +380,7 @@ img {
     text-align: center;
     padding: 5px;
 }
+
 .historical-data>table td {
     padding-top: 5px;
     max-width: 500px;
@@ -390,7 +390,7 @@ img {
     padding: 5px 0px 5px 0px;
 }
 
-.display-forecast-data table{
+.display-forecast-data table {
     height: 100%;
     width: 100%;
 }
@@ -440,7 +440,7 @@ img {
         height: 78%;
         background-color: rgba(22, 22, 22, 0.548);
         position: relative;
-        bottom: 436px;
+        bottom: 446px;
         left: 0;
         backdrop-filter: blur(4px);
     }
@@ -461,7 +461,7 @@ img {
     }
 
     .temp {
-        
+
         position: relative;
         bottom: 377px;
         left: 20px;
@@ -474,7 +474,7 @@ img {
         font-size: 11px;
     }
 
-    h1{
+    h1 {
         font-size: 5rem;
     }
 
@@ -504,12 +504,14 @@ img {
         display: flex;
         z-index: 1;
     }
+
     .theme>img {
         height: 25px;
         width: 25px;
         border-radius: 50%;
         cursor: pointer;
     }
+
     .menu-header {
         background-color: var(--secondary-color);
         transition: background-color 0.3s ease;
@@ -518,7 +520,8 @@ img {
         height: 15px;
         padding: 12px 8px 10px 14px;
     }
-    #menu-icon{
+
+    #menu-icon {
         position: relative;
         right: 2.5px;
         bottom: 1px;
@@ -528,54 +531,62 @@ img {
         color: rgb(227, 227, 227);
         border-radius: 10px;
         position: relative;
-        bottom: 510px;
-        left: 4px;
+        bottom: 400px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background-color: rgb(61, 61, 61);
         height: 200px;
-        width: 290px;
+        width: 68%;
     }
+
     .historiacl-header {
         color: var(--secondary-color);
         width: 200px;
         position: relative;
-        bottom: 500px;
-        left: 28%;
+        bottom: 480px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
+
     .forecast-header {
         color: var(--secondary-color);
         width: 200px;
         position: relative;
         bottom: 488px;
-        left: 32%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
+
     .historical-data>table {
         text-align: center;
         height: 200px;
-        width: 296px;
+        width: 100%;
     }
 
     .display-forecast-data {
         position: relative;
-        bottom: 500px;
-        left: 25px;
+        bottom: 350px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
-        width: 92%;
-        height: 480px;
+        width: 75%;
+        height: 300px;
         background-color: var(--secondary-color);
-        backdrop-filter: blur(4px);
         border-radius: 10px;
-        z-index: -1;
         align-content: stretch;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: stretch;
+        justify-content: center;
+        align-items: center;
     }
-    .display-forecast-data table{
+
+    .display-forecast-data table {
         position: relative;
         top: 0px;
-        width: 250px;
+        width: 45%;
+        height: 130px;
     }
+
     .search-bar>button {
         border: 0;
         background-color: transparent;
@@ -585,6 +596,7 @@ img {
         left: -12px;
     }
 }
+
 @media (max-width:425px) {
     .header {
         color: var(--secondary-color);
@@ -647,7 +659,7 @@ img {
     }
 
     .temp {
-        
+
         position: relative;
         bottom: 377px;
         left: 29px;
@@ -684,12 +696,14 @@ img {
         display: flex;
         z-index: 1;
     }
+
     .theme>img {
         height: 25px;
         width: 25px;
         border-radius: 50%;
         cursor: pointer;
     }
+
     .menu-header {
         background-color: var(--secondary-color);
         transition: background-color 0.3s ease;
@@ -698,7 +712,8 @@ img {
         height: 15px;
         padding: 12px 8px 10px 14px;
     }
-    #menu-icon{
+
+    #menu-icon {
         position: relative;
         right: 2.5px;
         bottom: 1px;
@@ -714,6 +729,7 @@ img {
         height: 200px;
         width: 370px;
     }
+
     .historiacl-header {
         color: var(--secondary-color);
         width: 200px;
@@ -721,6 +737,7 @@ img {
         bottom: 500px;
         left: 28%;
     }
+
     .forecast-header {
         color: var(--secondary-color);
         width: 200px;
@@ -738,18 +755,206 @@ img {
         height: 550px;
         background-color: var(--secondary-color);
         border-radius: 10px;
-        z-index: -1;
         align-content: stretch;
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
     }
-    .display-forecast-data table{
+
+    .display-forecast-data table {
         position: relative;
         top: 20px;
         width: 330px;
     }
+
+    .search-bar>button {
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        position: relative;
+        top: 2px;
+        left: -12px;
+    }
+}
+
+@media (max-width:525px) {
+    .header {
+        color: var(--secondary-color);
+        transition: background-color 0.3s ease;
+        font-size: 1.5rem;
+        position: relative;
+        left: 120px;
+        bottom: 610px;
+        margin: 0;
+        padding: 0%;
+        width: 50%;
+    }
+
+    .search-bar {
+        width: 200px;
+        position: relative;
+        bottom: 590px;
+        left: 85px;
+        background-color: rgba(170, 170, 170, 0.421);
+        backdrop-filter: blur(4px);
+        align-items: center;
+        border-radius: 60px;
+        display: flex;
+        padding: 10px 20px;
+        vertical-align: middle;
+    }
+
+    .main-card {
+        position: relative;
+        bottom: 598px;
+        left: 23px;
+        width: 90%;
+        height: 300px;
+        background-color: black;
+    }
+
+    .main-card>.details {
+        width: 100%;
+        height: 78%;
+        background-color: rgba(22, 22, 22, 0.548);
+        position: relative;
+        bottom: 450px;
+        left: 0;
+        backdrop-filter: blur(4px);
+    }
+
+    .main-card>.details>table {
+        margin: 0;
+        position: relative;
+        top: 7%;
+        left: 5%;
+        width: 90%;
+        height: 70%;
+    }
+
+    .main-card>.image>img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .temp {
+
+        position: relative;
+        bottom: 377px;
+        left: 29px;
+        color: rgb(227, 227, 227);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    #weatherTable tr td {
+        font-size: 11px;
+    }
+
+    .condition {
+        font-size: .8rem;
+        position: relative;
+        bottom: 75px;
+        left: 170px;
+    }
+
+    .location {
+        width: 300px;
+        position: relative;
+        bottom: 80px;
+        left: 170px;
+    }
+
+    .theme {
+        width: 25px;
+        height: 25px;
+        border-radius: 60px;
+        position: relative;
+        bottom: 735px;
+        left: 90%;
+        background-color: var(--secondary-color);
+        display: flex;
+        z-index: 1;
+    }
+
+    .theme>img {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .menu-header {
+        background-color: var(--secondary-color);
+        transition: background-color 0.3s ease;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        padding: 12px 8px 10px 14px;
+    }
+
+    #menu-icon {
+        position: relative;
+        right: 2.5px;
+        bottom: 1px;
+    }
+
+    .historical-data {
+        color: rgb(227, 227, 227);
+        border-radius: 10px;
+        position: relative;
+        bottom: 510px;
+        left: 19px;
+        background-color: rgb(61, 61, 61);
+        height: 200px;
+        width: 90%;
+    }
+
+    .historical-data>table {
+        text-align: center;
+        height: 200px;
+        width: 100%;
+    }
+
+    .historiacl-header {
+        color: var(--secondary-color);
+        width: 200px;
+        position: relative;
+        bottom: 500px;
+        left: 28%;
+    }
+
+    .forecast-header {
+        color: var(--secondary-color);
+        width: 200px;
+        position: relative;
+        bottom: 488px;
+        left: 32%;
+    }
+
+    .display-forecast-data {
+        position: relative;
+        bottom: 500px;
+        left: 61px;
+        display: flex;
+        width: 75%;
+        height: 550px;
+        background-color: var(--secondary-color);
+        border-radius: 10px;
+        align-content: stretch;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .display-forecast-data table {
+        position: relative;
+        top: -1px;
+        width: 90%;
+    }
+
     .search-bar>button {
         border: 0;
         background-color: transparent;
@@ -823,7 +1028,7 @@ img {
     }
 
     .temp {
-        
+
         position: relative;
         bottom: 377px;
         left: 20px;
@@ -836,7 +1041,7 @@ img {
         font-size: 11px;
     }
 
-    h1{
+    h1 {
         font-size: 5rem;
     }
 
@@ -866,12 +1071,14 @@ img {
         display: flex;
         z-index: 1;
     }
+
     .theme>img {
         height: 25px;
         width: 25px;
         border-radius: 50%;
         cursor: pointer;
     }
+
     .menu-header {
         background-color: var(--secondary-color);
         transition: background-color 0.3s ease;
@@ -880,7 +1087,8 @@ img {
         height: 15px;
         padding: 12px 8px 10px 14px;
     }
-    #menu-icon{
+
+    #menu-icon {
         position: relative;
         right: 2.5px;
         bottom: 1px;
@@ -896,6 +1104,7 @@ img {
         height: 200px;
         width: 290px;
     }
+
     .historiacl-header {
         color: var(--secondary-color);
         width: 200px;
@@ -903,6 +1112,7 @@ img {
         bottom: 500px;
         left: 28%;
     }
+
     .forecast-header {
         color: var(--secondary-color);
         width: 200px;
@@ -910,6 +1120,7 @@ img {
         bottom: 488px;
         left: 32%;
     }
+
     .historical-data>table {
         text-align: center;
         height: 200px;
@@ -926,18 +1137,19 @@ img {
         background-color: var(--secondary-color);
         backdrop-filter: blur(4px);
         border-radius: 10px;
-        z-index: -1;
         align-content: stretch;
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
     }
-    .display-forecast-data table{
+
+    .display-forecast-data table {
         position: relative;
         top: 20px;
         width: 250px;
     }
+
     .search-bar>button {
         border: 0;
         background-color: transparent;
