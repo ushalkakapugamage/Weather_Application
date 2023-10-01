@@ -110,6 +110,10 @@ function maincard_weather(location) {
                 mainImg.src = "ASSETS/rain.jpg";
             }else if (conditionLowerCase.includes("overcast")) {
                 mainImg.src = "ASSETS/overcast.webp";
+            }else if (conditionLowerCase.includes("fog")) {
+                mainImg.src = "ASSETS/fog.jpg";
+            }else if (conditionLowerCase.includes("mist")) {
+                mainImg.src = "ASSETS/fog.jpg";
             }
 
             const windPressure = data.current.pressure_mb;
@@ -171,6 +175,8 @@ function maincard_weather(latitude, longitude) {
                 mainImg.src = "ASSETS/fog.jpg";
             }else if (conditionLowerCase.includes("overcast")) {
                 mainImg.src = "ASSETS/overcast.webp";
+            }else if (conditionLowerCase.includes("mist")) {
+                mainImg.src = "ASSETS/fog.jpg";
             }
 
             const windPressure = data.current.pressure_mb;
