@@ -1,5 +1,5 @@
 const apiKey = "e0f51fbd4d5f4d9383433550232509";
-const apiUrl = "http://api.weatherapi.com/v1";
+const apiUrl = "https://api.weatherapi.com/v1";
 
 let latitude = undefined;
 let longitude = undefined;
