@@ -748,8 +748,9 @@ img {
 
     .display-forecast-data {
         position: relative;
-        bottom: 500px;
-        left: 14px;
+        bottom: 350px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         width: 92%;
         height: 550px;
@@ -904,8 +905,9 @@ img {
         color: rgb(227, 227, 227);
         border-radius: 10px;
         position: relative;
-        bottom: 510px;
-        left: 19px;
+        bottom: 350px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background-color: rgb(61, 61, 61);
         height: 200px;
         width: 90%;
@@ -921,22 +923,25 @@ img {
         color: var(--secondary-color);
         width: 200px;
         position: relative;
-        bottom: 500px;
-        left: 28%;
+        bottom: 450px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .forecast-header {
         color: var(--secondary-color);
         width: 200px;
         position: relative;
-        bottom: 488px;
-        left: 32%;
+        bottom: 470px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .display-forecast-data {
         position: relative;
-        bottom: 500px;
-        left: 61px;
+        bottom: 200px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         width: 75%;
         height: 550px;
@@ -983,7 +988,8 @@ img {
         width: 200px;
         position: relative;
         bottom: 590px;
-        left: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background-color: rgba(170, 170, 170, 0.421);
         backdrop-filter: blur(4px);
         align-items: center;
@@ -995,8 +1001,9 @@ img {
 
     .main-card {
         position: relative;
-        bottom: 598px;
-        left: 23px;
+        bottom: 450px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 90%;
         height: 300px;
         background-color: black;
@@ -1098,8 +1105,9 @@ img {
         color: rgb(227, 227, 227);
         border-radius: 10px;
         position: relative;
-        bottom: 510px;
-        left: 4px;
+        bottom: 350px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background-color: rgb(61, 61, 61);
         height: 200px;
         width: 290px;
@@ -1109,16 +1117,18 @@ img {
         color: var(--secondary-color);
         width: 200px;
         position: relative;
-        bottom: 500px;
-        left: 28%;
+        bottom: 450px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .forecast-header {
         color: var(--secondary-color);
         width: 200px;
         position: relative;
-        bottom: 488px;
-        left: 32%;
+        bottom: 460px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .historical-data>table {
@@ -1129,8 +1139,9 @@ img {
 
     .display-forecast-data {
         position: relative;
-        bottom: 500px;
-        left: 14px;
+        bottom: 200px;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         width: 92%;
         height: 550px;
@@ -1146,7 +1157,7 @@ img {
 
     .display-forecast-data table {
         position: relative;
-        top: 20px;
+        top: -2px;
         width: 250px;
     }
 
