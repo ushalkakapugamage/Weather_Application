@@ -210,15 +210,21 @@ function forcast_weather(jsonData) {
         card.style.backgroundSize = "cover";
 
         if (condition.toLowerCase().includes("rain")) {
-            card.style.backgroundImage = "url('Assets/rain.jpg')";
+            card.style.backgroundImage = "url('https://www.sunspotrealty.com/wp-content/uploads/2020/02/4-rainy-day-1.jpg')";
         } else if (condition.toLowerCase().includes("cloudy")) {
-            card.style.backgroundImage = "url('Assets/clouds.jpeg')";
+            card.style.backgroundImage = "url('https://s7d2.scene7.com/is/image/TWCNews/clouds_from_above')";
         } else if (condition.toLowerCase().includes("sunny")) {
-            card.style.backgroundImage = "url('Assets/sun.jpeg')";
+            card.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSswLOnr2gDYbcJWSgT3I4aKyUTA0LzYsV2NU8c-Gc52k9C8a0Tf9yUyzMtvGgEk97Gdug&usqp=CAU')";
         } else if (condition.toLowerCase().includes("windy")) {
-            card.style.backgroundImage = "url('Assets/windy.jpg')";
+            card.style.backgroundImage = "url('https://c0.wallpaperflare.com/preview/77/765/219/palm-tree-wind-windy-weather.jpg')";
         } else if (condition.toLowerCase().includes("overcast")) {
-            card.style.backgroundImage = "url('Assets/overcast.webp')";
+            card.style.backgroundImage = "url('https://www.rochesterfirst.com/wp-content/uploads/sites/66/2021/04/sky-1107579_1920.jpg')";
+        } else if (condition.toLowerCase().includes("fog")) {
+            card.style.backgroundImage = "url('https://i.pinimg.com/736x/f8/81/38/f881389ebbac28b02d4cd3bbf6d2b432--tree-wallpaper-desktop-wallpapers.jpg')";
+        } else if (condition.toLowerCase().includes("mist")) {
+            card.style.backgroundImage = "url('https://i.pinimg.com/736x/f8/81/38/f881389ebbac28b02d4cd3bbf6d2b432--tree-wallpaper-desktop-wallpapers.jpg')";
+        } else if (condition.toLowerCase().includes("rainy")) {
+            card.style.backgroundImage ="url('https://www.sunspotrealty.com/wp-content/uploads/2020/02/4-rainy-day-1.jpg')";
         }
     }
 

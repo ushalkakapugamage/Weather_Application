@@ -395,6 +395,11 @@ img {
     width: 100%;
 }
 
+.card img{
+    background-size: cover;
+    width: 150px;
+}
+
 
 
 
@@ -571,7 +576,6 @@ img {
         display: flex;
         width: 75%;
         height: 300px;
-        background-color: var(--secondary-color);
         border-radius: 10px;
         align-content: stretch;
         flex-direction: row;
@@ -754,7 +758,6 @@ img {
         display: flex;
         width: 92%;
         height: 550px;
-        background-color: var(--secondary-color);
         border-radius: 10px;
         align-content: stretch;
         flex-direction: column;
@@ -945,7 +948,6 @@ img {
         display: flex;
         width: 75%;
         height: 550px;
-        background-color: var(--secondary-color);
         border-radius: 10px;
         align-content: stretch;
         flex-direction: column;
@@ -1145,7 +1147,6 @@ img {
         display: flex;
         width: 92%;
         height: 550px;
-        background-color: var(--secondary-color);
         backdrop-filter: blur(4px);
         border-radius: 10px;
         align-content: stretch;
