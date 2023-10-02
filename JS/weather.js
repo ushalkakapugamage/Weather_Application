@@ -27,8 +27,8 @@ window.onload = function () {
     var showPosition = function (position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-        maincard_weather(latitude, longitude);
         historical_weather(latitude, longitude, currentDate, endDate);
+        maincard_weather(latitude,longitude);
     };
 
     getLocation();
@@ -150,6 +150,7 @@ function maincard_weather(latitude, longitude) {
             return response.json();
         })
         .then(data => {
+            console.log(data);
 
             jsonData = data;
             forcast_weather(jsonData);
